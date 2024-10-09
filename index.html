@@ -29,12 +29,19 @@
         document.getElementById('downloadButton').addEventListener('click', function() {
             const downloadLink = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`;
 
-            const a = document.createElement('a');
-            a.href = downloadLink;
-            a.download = originalFileName; // Используем оригинальное имя файла
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            fetch(downloadLink)
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = originalFileName; // Используем оригинальное имя файла
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url); // Освобождаем URL
+                })
+                .catch(error => console.error('Ошибка загрузки:', error));
         });
     </script>
 </body>
