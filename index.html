@@ -1,36 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Загрузка файла</title>
+    <title>Скачать файл с Google Drive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <button id="downloadBtn">Скачать файл</button>
+    <h1>Скачать файл с Google Drive</h1>
+    <button id="downloadButton">Скачать файл</button>
 
     <script>
-        const downloadFile = () => {
-            fetch("https://www.googleapis.com/drive/v3/files/14SY4EZWpZrDEfx41W0gleRfniSiC8bCy?alt=media&key=AIzaSyAA9ERw-9LZVEohRYtCWka_TQc6oXmvcVU")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Сеть не в порядке: ' + response.statusText);
-                    }
-                    return response.blob();
-                })
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'TJPP5_assets4.zip'; // Используйте оригинальное имя файла
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                    window.URL.revokeObjectURL(url); // Освобождение памяти
-                })
-                .catch(error => console.error('Ошибка загрузки файла:', error));
-        };
+        const fileId = '14SY4EZWpZrDEfx41W0gleRfniSiC8bCy';
+        const apiKey = 'AIzaSyAA9ERw-9LZVEohRYtCWka_TQc6oXmvcVU';
+        const originalFileName = 'TJPP5_assets4.zip'; // оригинальное имя файла
 
-        document.getElementById('downloadBtn').addEventListener('click', downloadFile);
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            const downloadLink = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`;
+
+            const a = document.createElement('a');
+            a.href = downloadLink;
+            a.download = originalFileName; // Используем оригинальное имя файла
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        });
     </script>
 </body>
 </html>
