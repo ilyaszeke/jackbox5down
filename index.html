@@ -1,59 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta name="download_date" content="2024-10-09T12:39:01.068Z"/>
-    <title>Google Диск: предупреждение системы безопасности</title>
-    <link rel="icon" href="//ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">
-    <style nonce="">
-        body {
-            color: #222;
-            font: normal 13px/1.4 Arial, sans-serif;
-            margin: 0;
-            text-align: center;
-            padding-top: 50px;
-        }
-
-        .uc-warning-caption {
-            color: #222;
-            font-size: 16px;
-        }
-
-        .download-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .download-button:hover {
-            background-color: #45a049;
-        }
-
-        .uc-footer {
-            color: #777;
-            font-size: 11px;
-            padding: 5ex 0;
-            text-align: center;
-        }
-
-        .uc-footer-divider {
-            color: #ccc;
-            width: 100%;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачивание файла</title>
+    <script>
+        // Автоматически выполняем отправку формы для скачивания
+        window.onload = function() {
+            document.getElementById("download-form").submit();
+        };
+    </script>
 </head>
 <body>
-    <p class="uc-warning-caption">Не удалось проверить файл на наличие вирусов.</p>
-    <p>Файл <span><a href="https://drive.usercontent.google.com/download?id=14SY4EZWpZrDEfx41W0gleRfniSiC8bCy&export=download&authuser=0">TJPP5_assets4.zip</a> (1,6G)</span> слишком большой. Не удалось проверить его на наличие вирусов. Все равно скачать?</p>
-    
-    <a href="https://drive.usercontent.google.com/download?id=14SY4EZWpZrDEfx41W0gleRfniSiC8bCy&export=download&authuser=0" class="download-button" download>Все равно скачать</a>
-
-    <div class="uc-footer">
-        <hr class="uc-footer-divider">
-    </div>
+    <form id="download-form" action="https://drive.usercontent.google.com/download" method="get">
+        <input type="hidden" name="id" value="14SY4EZWpZrDEfx41W0gleRfniSiC8bCy">
+        <input type="hidden" name="export" value="download">
+        <input type="hidden" name="authuser" value="0">
+        <input type="hidden" name="confirm" value="t">
+        <input type="hidden" name="uuid" value="6eeef9ab-e2c0-45a2-aeae-e8899fb3c0d3">
+        <input type="hidden" name="at" value="AN_67v0IsdAWCfSe6R7Pbuq6Jq64:1728477503775">
+    </form>
 </body>
 </html>
