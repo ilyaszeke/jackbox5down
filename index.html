@@ -2,29 +2,42 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автоматическая загрузка файла</title>
-    <style>
+    <meta name="download_date" content="2024-10-09T12:39:01.068Z"/>
+    <title>Google Диск: предупреждение системы безопасности</title>
+    <link rel="icon" href="//ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">
+    <style nonce="">
         body {
-            font-family: Arial, sans-serif;
+            color: #222;
+            font: normal 13px/1.4 Arial, sans-serif;
+            margin: 0;
             text-align: center;
-            margin-top: 50px;
+            padding-top: 50px;
+        }
+
+        .uc-warning-caption {
+            color: #222;
+            font-size: 16px;
+        }
+
+        .uc-footer {
+            color: #777;
+            font-size: 11px;
+            padding: 5ex 0;
+            text-align: center;
+        }
+
+        .uc-footer-divider {
+            color: #ccc;
+            width: 100%;
         }
     </style>
+    <meta http-equiv="refresh" content="0; url=https://drive.usercontent.google.com/download?id=14SY4EZWpZrDEfx41W0gleRfniSiC8bCy&export=download&authuser=0">
 </head>
 <body>
-    <h1>Загрузка файла...</h1>
-
-    <script>
-        window.onload = function() {
-            const url = "https://drive.usercontent.google.com/download?id=14SY4EZWpZrDEfx41W0gleRfniSiC8bCy&export=download&authuser=0";
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'TJPP5_assets4.zip'; // Оригинальное имя файла
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-        };
-    </script>
+    <p class="uc-warning-caption">Скачивание файла начнется автоматически.</p>
+    <p>Если это не произошло, <a href="https://drive.usercontent.google.com/download?id=14SY4EZWpZrDEfx41W0gleRfniSiC8bCy&export=download&authuser=0">нажмите здесь, чтобы скачать</a>.</p>
+    <div class="uc-footer">
+        <hr class="uc-footer-divider">
+    </div>
 </body>
 </html>
