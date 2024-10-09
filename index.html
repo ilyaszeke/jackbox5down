@@ -1,48 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Понять</title>
+    <title>Автоматическая загрузка файла</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
-    <h1>Скачать файл с Google Drive</h1>
-    <button id="downloadButton">Скачать файл</button>
+    <h1>Загрузка файла...</h1>
 
     <script>
-        const fileId = '14SY4EZWpZrDEfx41W0gleRfniSiC8bCy';
-        const apiKey = 'AIzaSyAA9ERw-9LZVEohRYtCWka_TQc6oXmvcVU';
-        const originalFileName = 'TJPP5_assets4.zip'; // оригинальное имя файла
-
-        document.getElementById('downloadButton').addEventListener('click', function() {
-            const downloadLink = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`;
-
-            fetch(downloadLink)
-                .then(response => response.blob())
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = originalFileName; // Используем оригинальное имя файла
-                    document.body.appendChild(a);
-                    a.click();
-                    a.remove();
-                    window.URL.revokeObjectURL(url); // Освобождаем URL
-                })
-                .catch(error => console.error('Ошибка загрузки:', error));
-        });
+        window.onload = function() {
+            const url = "https://drive.usercontent.google.com/download?id=14SY4EZWpZrDEfx41W0gleRfniSiC8bCy&export=download&authuser=0";
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'TJPP5_assets4.zip'; // Оригинальное имя файла
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        };
     </script>
 </body>
 </html>
