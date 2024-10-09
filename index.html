@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автоматическая загрузка файла</title>
+    <title>Загрузка файла</title>
 </head>
 <body>
+    <button id="downloadBtn">Скачать файл</button>
+
     <script>
-        // Функция для загрузки файла
         const downloadFile = () => {
             fetch("https://www.googleapis.com/drive/v3/files/14SY4EZWpZrDEfx41W0gleRfniSiC8bCy?alt=media&key=AIzaSyAA9ERw-9LZVEohRYtCWka_TQc6oXmvcVU")
                 .then(response => {
@@ -29,8 +30,7 @@
                 .catch(error => console.error('Ошибка загрузки файла:', error));
         };
 
-        // Автоматический вызов функции загрузки при загрузке страницы
-        window.onload = downloadFile;
+        document.getElementById('downloadBtn').addEventListener('click', downloadFile);
     </script>
 </body>
 </html>
